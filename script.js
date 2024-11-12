@@ -6,6 +6,7 @@ var menu_open_btn = document.querySelector(".menu button");
 var a = document.getElementsByTagName("a");
 var menu_span = document.getElementsByClassName("underline");
 var menu_video = document.getElementById("menu_video"); 
+var reel_video = document.getElementById("play-reel-video"); 
 var bg_video = document.getElementById("bg_video");
 var menu_take_seat_btn = document.getElementById("take_seat_btn"); 
 
@@ -101,10 +102,14 @@ page1_content.addEventListener("click",function(){
         backgroundColor: "black",
         left: "0",
         duration: 1.2,
-        ease: "power3.inOut"
+        ease: "power3.inOut",
+        onComplete: () => {
+            reel_video.play()
+        }
     })
 })
 reel_btn.addEventListener("click",function(){
+    reel_video.pause()
     gsap.to(".play-reel",{
         left: "-100%",
         duration: 1.2,
