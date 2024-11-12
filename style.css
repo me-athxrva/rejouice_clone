@@ -244,7 +244,7 @@ html,body{
     align-items: center;
     columns: white;
 }
-.play-reel iframe{
+.play-reel video{
     width: 80%;
     height: 80%;
     object-fit: cover;
