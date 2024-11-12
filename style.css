@@ -48,7 +48,7 @@ html,body{
     font-size: 1.7rem;
     padding: 0.2vw 0 0.2vw 0;
 }
-.menu-content-left video{
+#menu_video{
     width: 80%;
     border-radius: 15px;
     object-fit: cover;
