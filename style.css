@@ -1,0 +1,292 @@
+@font-face {
+    font-family: rejouice_headline;
+    src: url(./assets/fonts/Rejouice-Headline.ttf);
+}
+@font-face {
+    font-family: rejouice_body;
+    src: url(./assets/fonts/NBInternationalProBoo.ttf);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.main{
+    height: 100%;
+    width: 100%;
+}
+
+/* menu content */
+.menu-content{
+    background-color: #EDECE7;
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    user-select: none;
+    top: -100%;
+}
+.menu-content-top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.menu-content-top .menu-content-left{
+    height: 100%;
+    width: 50vw;
+    padding: 2vw;
+}
+.menu-title{
+    font-family: rejouice_headline;
+    color: black;
+    font-size: 1.7rem;
+    padding: 0.2vw 0 0.2vw 0;
+}
+.menu-content-left video{
+    width: 80%;
+    border-radius: 15px;
+    object-fit: cover;
+    border: solid 1px black;
+}
+.play-reel-btn{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 0.5vw;
+    padding: 0.2vw 0 1vw 0;
+    text-align: center;
+    user-select: none;
+}
+.play-reel-btn a{
+    text-decoration: none;
+    color: #000;
+    font-family: rejouice_body;
+    font-weight: 100;
+    font-size: 1.1rem;
+    padding: 3px;
+    text-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-content-top .menu-content-middle{
+    width: 50vw;
+    height: 100%;
+    padding: 2vw 3vw;
+}
+.menu-content-middle ul{
+    list-style-type: none;
+    padding: 1vw 0.2vw;
+    
+}
+.menu-content-middle ul li{
+    overflow: hidden;
+}
+.menu-content-middle ul li a{
+    font-family: rejouice_body;
+    font-size: 3.2rem;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.underline{
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    left: -100%;
+    bottom: 0;
+}
+.menu-content-middle button{
+    background-color: transparent;
+    clip-path: inset(0 0 0 0);
+    border: solid black 2px;
+    border-radius: 50px;
+    padding: 1vw 1.2vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: black;
+}
+.menu-content-middle button span{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    z-index: -1;
+    left: -100%;
+}
+.menu-content-middle button h4{
+    font-family: rejouice_body;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+.menu-content-right{
+    height: 100%;
+    padding: 2.5vw;
+}
+.menu-content-right button{
+    background-color: transparent;
+    font-family: rejouice_body;
+    font-size: 1.6rem;
+    font-weight: 100;
+    border: none;
+}
+.menu-content-bottom{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-content-bottom h4{
+    height: 100%;
+    width: 95vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: rejouice_body;
+    font-weight: 100;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+}
+.menu-content-bottom h4 div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+}
+.menu-content-bottom h4 a{
+    font-family: rejouice_body;
+    font-weight: 100;
+    text-decoration: none;
+    color: #000;
+    padding: 0 1vw;
+}
+.menu-content-bottom h4 span{
+    position: absolute;
+    width: 100%;
+    height: 0.1px;
+    background-color: black;
+    left: 0;
+    top: 0;
+}
+
+/* page 1 content */
+.page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.page1 .cursor{
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.365);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cursor h2{
+    font-family: rejouice_body;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+.page1 video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    z-index: -1;
+}
+.play-reel{
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -100%;
+}
+.play-reel button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.4vw;
+    background-color: transparent;
+    border: 0;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    columns: white;
+}
+.play-reel iframe{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+.page1 .page1-content{
+    min-height: 100vh;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5vw 2vw;
+}
+.nav_font{
+    color: white;
+    text-decoration: none;
+    font-family: rejouice_body;
+}
+.logo a{
+    font-size: 1.3vw;
+}
+.menu button{
+    background-color: transparent;
+    border: 0;
+    font-size: 1.3vw;
+    font-weight: 100;
+}
+
+/* tagline */
+.rejouice-tag{
+    /* background-color: red; */
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rejouice-tag span{
+    font-family: rejouice_headline;
+    color: white;
+    font-size: 25vw;
+    line-height: 25vw;
+}
