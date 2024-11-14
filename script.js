@@ -35,7 +35,7 @@ function cursor(pg_src){
 function a_hover(target,span_n){
     target.addEventListener("mouseenter",function(){
         gsap.to(span_n,{
-            left: "0%"
+            left: "0%",
         })
     })
     target.addEventListener("mouseleave",function(){
@@ -57,7 +57,7 @@ function menu_toggle(up_down){
         gsap.to(".menu-content",{
             top: "0%",
             duration: 1.1,
-            ease: "power3.inOut",
+            ease: "power1.inOut",
             onComplete: () => {
                 menu_video.play()
             }
@@ -65,10 +65,64 @@ function menu_toggle(up_down){
     } else {
         gsap.to(".menu-content",{
             top: "-100%",
-            duration: 1,
-            ease: "power3.inOut"
+            duration: 1.2,
+            ease: "power1.inOut"
         })
         menu_video.pause()
+    }
+}
+
+// menu animation timeline
+function menu_timeline(action){
+    let menu_tl = gsap.timeline({
+        ease: "power1.inOut"
+    });
+
+    menu_tl.fromTo("#menu_video",{
+        scale: "0.1",
+        opacity: 0,
+    },{
+        scale: "1",
+        opacity: 1,
+        duration: 1.5,
+    })
+
+    menu_tl.fromTo(".menu-content-middle ul li a",{
+        y: 100,
+        opacity: 0,
+    },{
+        y: 0,
+        opacity: 1,
+        stagger: 0.05,
+        duration: 0.5,
+    },"-=1")
+
+    menu_tl.fromTo("#take_seat_btn",{
+        opacity: 0,
+    },{
+        opacity: 1,
+        duration: 0.5,
+    },"-=0.5")
+
+    menu_tl.fromTo(".menu-line",{
+        x: "-100%"
+    },{
+        x: "0%",
+        duration: 1,
+        ease: "power1.inOut"
+    },"-=1")
+
+    menu_tl.fromTo(".menu-content-bottom h4",{
+        opacity: 0
+    },{
+        opacity: 1,
+        duration: 0.5
+    },"-=1")
+
+    if(action=="play"){
+        menu_tl.play();
+    } else {
+        menu_tl.reverse(2);
     }
 }
 
@@ -119,10 +173,12 @@ reel_btn.addEventListener("click",function(){
 
 // menu close on click event
 menu_open_btn.addEventListener("click",function(){
-    menu_toggle("open")
+    menu_toggle("open");
+    menu_timeline("play");
 })
 menu_close_btn.addEventListener("click",function(){
-    menu_toggle("close")
+    menu_timeline();
+    menu_toggle("close");
 })
 
 // for loop for assigning functions to 'a' tags
