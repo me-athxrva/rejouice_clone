@@ -20,6 +20,25 @@ html,body{
     width: 100%;
 }
 
+/* preloader */
+.preloader{
+    background-color: #0E0E0E;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.preloader .text span{
+    color: white;
+    font-family: rejouice_body;
+    font-size: 1.7rem;
+    font-weight: 100;
+    opacity: 0;
+}
+
 /* menu content */
 .menu-content{
     background-color: #EDECE7;
