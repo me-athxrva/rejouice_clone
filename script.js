@@ -185,7 +185,12 @@ function home_timeline(){
                 opacity: 0,
                 duration: 1,
                 ease: "power1.inOut",
-                delay: 0.25
+                delay: 0.25,
+                onComplete: () => {
+                    gsap.set(".preloader",{
+                        display: "none",
+                    })
+                }
             })
         }
     })
