@@ -8,42 +8,28 @@ var menu_span = document.getElementsByClassName("underline");
 var menu_video = document.getElementById("menu_video"); 
 var reel_video = document.getElementById("play-reel-video"); 
 var bg_video = document.getElementById("bg_video");
-var menu_take_seat_btn = document.getElementById("take_seat_btn"); 
+var menu_take_seat_btn = document.getElementById("take_seat_btn");
 
+function lenis_scroll(){
+    const lenis = new Lenis();
 
-function locomotive_st(){
-    // locomotive scrolltrigger 
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
-    const locoScroll = new LocomotiveScroll({
-        el: document.querySelector(".main"),
-        smooth: true
-    });
-    // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-    locoScroll.on("scroll", ScrollTrigger.update);
-
-    // tell ScrollTrigger to use these proxy methods for the ".main" element since Locomotive Scroll is hijacking things
-    ScrollTrigger.scrollerProxy(".main", {
-        scrollTop(value) {
-            return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-        getBoundingClientRect() {
-            return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-    },
-    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    pinType: document.querySelector(".main").style.transform ? "transform" : "fixed"
+    // Listen for the 'scroll' event and log the event data to the console
+    lenis.on('scroll', (e) => {
+        console.log(e);
     });
 
-    // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-    ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+    // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+    lenis.on('scroll', ScrollTrigger.update);
 
-    // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-    ScrollTrigger.refresh();
+    // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+    // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+    });
+
+    // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+    gsap.ticker.lagSmoothing(0);
 }
-
-
 
 // universal cursor function
 function cursor(pg_src){
@@ -192,6 +178,26 @@ function home_timeline(){
                     })
                 }
             })
+            home_tl.fromTo(".rejouice-tag span",{
+                y: 10,
+                opacity: 0
+            },{
+                y: 0,
+                opacity: 1,
+                stagger: 0.05,
+                duration: 0.7,
+                delay: 0.1,
+                ease: "linear"
+            },"-=1")
+            home_tl.fromTo("nav",{
+                y: -70,
+                opacity: 0
+            },{
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: "power1.inOut"
+            },"-=1")
         }
     })
     home_tl.play()
@@ -258,9 +264,10 @@ for (let i = 0; i < menu_span.length; i++) {
 }
 
 // page1 function calls
-locomotive_st()
+
 cursor(page_1)
 menu_btn_animation()
+lenis_scroll()
 
 addEventListener("DOMContentLoaded",function(){
     home_timeline();

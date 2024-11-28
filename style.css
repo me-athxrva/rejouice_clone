@@ -18,14 +18,16 @@ html,body{
 .main{
     height: 100%;
     width: 100%;
+    user-select: none;
 }
 
 /* preloader */
 .preloader{
+    user-select: none;
     background-color: #0E0E0E;
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -309,4 +311,14 @@ nav{
     color: white;
     font-size: 25vw;
     line-height: 25vw;
+}
+
+/* page2 */
+.page2{
+    background-color: #FAF8F3;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    /* z-index: 10000; */
 }

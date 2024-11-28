@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.17/dist/lenis.css">
     <link rel="stylesheet" href="style.css" />
     <title>Home | REJOUICE®️</title>
   </head>
@@ -14,7 +14,7 @@
           <span>Tomorrow's</span> <span>Brands,</span> <span>Today.™</span>
       </div>
     </div>
-    <div class="main">
+    <div class="main" data-scroll-container>
       <div class="menu-content">
         <!-- menu content here -->
          <div class="menu-content-top">
@@ -43,7 +43,7 @@
           <h4><span class="menu-line"></span>Tomorrow's Brands, Today.™<div><a href="#">X </a><a href="#">Instagram </a><a href="#">LinkedIn </a></div></h4>
          </div>
       </div>
-      <div class="page1">
+      <div class="page1" data-scroll-section>
         <div class="cursor">
           <h2>See Reel</h2>
         </div>
@@ -86,8 +86,11 @@
           </div>
         </div>
       </div>
+      <div class="page2" data-scroll-section>
+        Hello Pg2
+      </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.17/dist/lenis.min.js"></script> 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
